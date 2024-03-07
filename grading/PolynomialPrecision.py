@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
             RBFValues = evaluate_RBF(loaded_data['xyz'], RBFCentres, polyharmonic, w, l=loaded_data['l'], a=a)
 
-            print("w error: ", np.amax(loaded_data['w'] - w))
-            print("RBFCentres error: ", np.amax(loaded_data['RBFCentres'] - RBFCentres))
-            print("a error: ", np.amax(loaded_data['a'] - a))
-            print("RBFValues error: ", np.amax(loaded_data['RBFValues'] - RBFValues))
+            print("w error: ", np.max(np.abs(loaded_data['w'] - w.squeeze())))
+            print("RBFCentres error: ", np.max(np.abs(loaded_data['RBFCentres'] - RBFCentres)))
+            print("a error: ", np.max(np.abs(loaded_data['a'] - a.squeeze())))
+            print("RBFValues error: ", np.max(np.abs(loaded_data['RBFValues'] - RBFValues.squeeze())))

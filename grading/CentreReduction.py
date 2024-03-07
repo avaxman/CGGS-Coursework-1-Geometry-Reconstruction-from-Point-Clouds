@@ -36,9 +36,9 @@ if __name__ == '__main__':
         RBFValues = evaluate_RBF(loaded_data['xyz'], RBFCentres, polyharmonic, w)
 
         print("No-off-points checks:")
-        print("w error: ", np.amax(loaded_data['w'] - w))
+        print("w error: ", np.max(np.abs(loaded_data['w'] - w.squeeze())))
         print("RBFCentres error: ", np.amax(loaded_data['RBFCentres'] - RBFCentres))
-        print("RBFValues error: ", np.amax(loaded_data['RBFValues'] - RBFValues))
+        print("RBFValues error: ", np.max(np.abs(loaded_data['RBFValues'] - RBFValues.squeeze())))
 
         pickle_file_path = root + '-centre-reduction-subset.data'
         with open(pickle_file_path, 'rb') as pickle_file:
@@ -52,6 +52,6 @@ if __name__ == '__main__':
         RBFValues = evaluate_RBF(loaded_data['xyz'], RBFCentres, polyharmonic, w)
 
         print("Centre subset checks:")
-        print("w error: ", np.amax(loaded_data['w'] - w))
+        print("w error: ", np.max(np.abs(loaded_data['w'] - w.squeeze())))
         print("RBFCentres error: ", np.amax(loaded_data['RBFCentres'] - RBFCentres))
-        print("RBFValues error: ", np.amax(loaded_data['RBFValues'] - RBFValues))
+        print("RBFValues error: ", np.max(np.abs(loaded_data['RBFValues'] - RBFValues.squeeze())))
